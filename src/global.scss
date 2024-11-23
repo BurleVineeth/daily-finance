@@ -34,4 +34,55 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+.sc-ion-buttons-ios-s ion-button {
+  min-height: 0px;
+}
+
+.iti-mobile .iti--container {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0px !important;
+  bottom: 150px !important;
+}
+
+.iti__flag-container {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  .iti__country-list {
+    width: 100%;
+    background-color: black;
+  }
+}
+
+.iti input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.iti__country-name {
+  color: black;
+}
+
+.iti__dial-code {
+  color: #999;
+}
+
+.flex-50 {
+  flex: 50%;
+}
+
+.flex-100 {
+  flex: 100%;
+}
+
+.form-control-error {
+  margin: 4px 12px 6px;
+  font-size: 14px;
+  color: red;
+}

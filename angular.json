@@ -31,7 +31,11 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              "src/global.scss",
+              "src/theme/variables.scss",
+              "intl-tel-input/build/css/intlTelInput.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -126,9 +130,7 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@ionic/angular-toolkit"
-    ],
+    "schematicCollections": ["@ionic/angular-toolkit"],
     "analytics": "bf4bdcab-ed60-4503-8589-22738129c6a3"
   },
   "schematics": {

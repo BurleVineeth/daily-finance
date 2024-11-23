@@ -1,0 +1,13 @@
+<div class="above-input-container">
+  <input
+    type="tel"
+    appIntlTelInput
+    label-placement="stacked"
+    [placeholder]="placeholder"
+    class="input-container intl-tel-input"
+    (isValidNumber)="updateErrorForIntTelInput($event)"
+    [countryCode]="'in'"
+    [formControl]="formControl || null"
+    maxlength="15"
+  />
+</div>

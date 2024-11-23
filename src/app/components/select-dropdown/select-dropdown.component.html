@@ -1,0 +1,13 @@
+<ion-item class="item" lines="none">
+  <ion-select
+    [formControl]="formControl || null"
+    label="Floating label"
+    label-placement="floating"
+  >
+    <ng-container *ngFor="let option of options; index as i">
+      <ion-select-option [value]="option.value">{{
+        option.name
+      }}</ion-select-option>
+    </ng-container>
+  </ion-select>
+</ion-item>

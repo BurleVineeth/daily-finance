@@ -1,0 +1,19 @@
+<ion-item class="item" lines="none">
+  <ion-input
+    [label]="label"
+    label-placement="floating"
+    [placeholder]="placeholder"
+    [formControl]="formControl || null"
+  ></ion-input>
+</ion-item>
+<div
+  *ngIf="formControl.invalid && formControl.touched"
+  class="form-control-error"
+>
+  {{ getErrorMsg() }}
+</div>
+
+<!-- <ion-item lines="none">
+  <ion-label class="text-capitalize" position="stacked">{{ label }}</ion-label>
+  <ion-input id="text-field" [formControl]="formControl || null"> </ion-input>
+</ion-item> -->

@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center"> Add User </ion-title>
+    <ion-buttons slot="end">
+      <ion-button shape="round" fill="solid" (click)="dismiss()"
+        ><ion-icon class="close-icon" name="close"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-text-input
+    label="User Name"
+    placeholder="Enter the user name"
+    [formControl]="getFormControl('name')"
+  ></app-text-input>
+
+  <app-phone-number
+    label="Phone Number"
+    placeholder="Enter the phone number"
+    [formControl]="getFormControl('phoneNumber')"
+  ></app-phone-number>
+
+  <app-number-input
+    label="Amount"
+    placeholder="Enter the amount"
+    [formControl]="getFormControl('amount')"
+  ></app-number-input>
+
+  <app-date
+    label="Date"
+    placeholder="DD/MM/YYYY"
+    [formControl]="getFormControl('date')"
+  ></app-date>
+
+  <app-select-dropdown
+    label="Payment Mode"
+    placeholder="Select the payment mode"
+    [options]="paymentOptions"
+    [formControl]="getFormControl('paymentMode')"
+  ></app-select-dropdown>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <app-button
+        class="flex-100"
+        btnText="Save User"
+        (btnClick)="saveUser()"
+      ></app-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

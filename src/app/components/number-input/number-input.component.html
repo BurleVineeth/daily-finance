@@ -1,0 +1,20 @@
+<!-- <ion-item class="item" lines="none">
+  <ion-input
+    type="number"
+    [label]="label"
+    label-placement="floating"
+    [placeholder]="placeholder"
+    [formControl]="formControl || null"
+  ></ion-input>
+</ion-item> -->
+
+<ion-item class="item" lines="none">
+  <ion-input
+    type="text"
+    [label]="label"
+    label-placement="floating"
+    [placeholder]="placeholder"
+    [value]="formControl.value"
+    (ionChange)="onInputChange($event)"
+  ></ion-input>
+</ion-item>

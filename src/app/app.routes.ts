@@ -7,10 +7,10 @@ export const routes: Routes = [
   },
   {
     path: 'daily',
-    loadComponent: () => import('./daily/daily.page').then( m => m.DailyPage)
+    loadComponent: () => import('./daily/daily.page').then((m) => m.DailyPage),
   },
   {
     path: 'stats',
-    loadComponent: () => import('./stats/stats.page').then( m => m.StatsPage)
+    loadComponent: () => import('./stats/stats.page').then((m) => m.StatsPage),
   },
 ];
