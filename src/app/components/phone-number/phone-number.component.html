@@ -11,3 +11,9 @@
     maxlength="15"
   />
 </div>
+<div
+  *ngIf="(formControl.invalid || !isNumberValid) && formControl.touched"
+  class="form-control-error"
+>
+  {{ getErrorMsg() }}
+</div>

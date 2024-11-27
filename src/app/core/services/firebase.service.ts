@@ -1,36 +1,95 @@
 import { Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
-import { collection } from 'firebase/firestore';
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  setDoc,
+} from 'firebase/firestore';
+import { firstValueFrom } from 'rxjs';
 import { COLLECTIONS } from '../enums';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseService {
-  constructor(private firestore: Firestore) {
-    // this.getCollectionData('');
+  constructor(private fireStore: Firestore) {}
+
+  async createSingleDocument<T extends { [x: string]: any }>(
+    collectionName: COLLECTIONS,
+    payload: T,
+  ) {
+    try {
+      const ref = collection(this.fireStore, collectionName);
+      const docRef = await addDoc(ref, payload);
+      console.log('Document successfully added with ID:', docRef.id);
+    } catch (error) {
+      throw error;
+    }
   }
 
-  createSingleDocument(collectionName: COLLECTIONS) {}
-
-  updateSingleDocument<T>(
+  async updateSingleDocument<T extends { [x: string]: any }>(
     collectionName: COLLECTIONS,
     docId: string,
     data: T,
-  ) {}
-
-  deleteSingleDocument(collectionName: COLLECTIONS, docId: string) {}
-
-  getSingleDocument<T>(collectionName: COLLECTIONS, docId: string): T {
-    return null as T;
+  ): Promise<void> {
+    try {
+      const docRef = doc(this.fireStore, collectionName, docId);
+      await setDoc(docRef, data, { merge: true }); // Merges updates with existing data
+      console.log('Document successfully updated');
+    } catch (error) {
+      console.error('Error updating document:', error);
+    }
   }
 
-  getCollectionData<T>(collectionName: COLLECTIONS | ''): T[] {
-    console.error('king');
-    const ref = collection(this.firestore, 'king');
-    collectionData(ref).subscribe((res) => {
-      console.log(res);
-    });
-    return [null] as T[];
+  async deleteSingleDocument(
+    collectionName: COLLECTIONS,
+    docId: string,
+  ): Promise<void> {
+    try {
+      const docRef = doc(this.fireStore, collectionName, docId);
+      await deleteDoc(docRef);
+      console.log('Document successfully deleted');
+    } catch (error) {
+      console.error('Error deleting document:', error);
+    }
   }
+
+  async getSingleDocument<T>(
+    collectionName: COLLECTIONS,
+    docId: string,
+  ): Promise<T | null> {
+    try {
+      const docRef = doc(this.fireStore, collectionName, docId);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log('Document data:', docSnap.data());
+        return docSnap.data() as T;
+      } else {
+        console.log('No such document!');
+        return null;
+      }
+    } catch (error) {
+      console.error('Error fetching document:', error);
+      return null;
+    }
+  }
+
+  async getCollectionData<T>(collectionName: COLLECTIONS | ''): Promise<T[]> {
+    try {
+      const ref = collection(this.fireStore, collectionName);
+      const data$ = collectionData(ref);
+      const results = await firstValueFrom(data$);
+      console.log('Fetched data:', results);
+      return results as T[];
+    } catch (error) {
+      console.error('Error fetching collection data:', error);
+      return [];
+    }
+  }
+
+  createUniqueId() {}
 }

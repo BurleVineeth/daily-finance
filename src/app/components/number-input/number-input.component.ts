@@ -12,6 +12,7 @@ import {
   IonLabel,
   IonIcon,
 } from '@ionic/angular/standalone';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-number-input',
@@ -32,7 +33,11 @@ export class NumberInputComponent {
   @Input() placeholder = '';
   @Input() formControl = new UntypedFormControl();
 
-  constructor() {}
+  constructor(private cmnService: CommonService) {}
+
+  public getErrorMsg() {
+    return this.cmnService.getErrorMsg(this.formControl, this.label);
+  }
 
   onInputChange(event: any): void {
     const inputValue = event.target.value;
@@ -40,6 +45,8 @@ export class NumberInputComponent {
       const numericValue = inputValue.replace(/[^0-9]/g, '');
       const formattedValue = this.formatIndianNumbering(numericValue);
       this.formControl.setValue(formattedValue);
+    } else {
+      this.formControl.setValue('');
     }
   }
 

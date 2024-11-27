@@ -4,17 +4,12 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-budget-dashboard',
   templateUrl: './budget-dashboard.component.html',
   styleUrls: ['./budget-dashboard.component.scss'],
-  standalone: true
+  standalone: true,
 })
 export class BudgetDashboardComponent {
+  constructor() {}
 
-  constructor() { }
+  ionViewWillEnter() {}
 
-  ionViewWillEnter() {
-
-  }
-
-  ionViewWillLeave() {
-    
-  }
+  ionViewWillLeave() {}
 }

@@ -7,3 +7,9 @@
     [formControl]="formControl || null"
   ></ion-input>
 </ion-item>
+<div
+  *ngIf="formControl.invalid && formControl.touched"
+  class="form-control-error"
+>
+  {{ getErrorMsg() }}
+</div>

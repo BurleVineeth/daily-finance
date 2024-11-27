@@ -1,13 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>stats</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">stats</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<app-header title="Stats"></app-header>
+<ion-content>
+  <ion-grid class="grid">
+    <ion-row class="row">
+      <ion-col
+        class="col"
+        *ngFor="let stat of statsOptions;index as i"
+        [size]="cmnService.getColSize(i, statsOptions.length)"
+      >
+        <div class="stat-container" (click)="selectOption(stat)">
+          <div [ngClass]="stat.color" class="block">{{stat.name}}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

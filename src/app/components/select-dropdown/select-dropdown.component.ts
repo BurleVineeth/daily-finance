@@ -1,20 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, forwardRef, OnChanges } from '@angular/core';
 import {
-  FormsModule,
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
   UntypedFormControl,
 } from '@angular/forms';
-import {
-  IonItem,
-  IonInput,
-  IonLabel,
-  IonIcon,
-  IonSelect,
-  IonSelectOption,
-} from '@ionic/angular/standalone';
+import { IonItem, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import { SELECT_OPTIONS } from 'src/app/core/interfaces';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-select-dropdown',
@@ -28,7 +21,6 @@ import { SELECT_OPTIONS } from 'src/app/core/interfaces';
     },
   ],
   imports: [
-    IonInput,
     ReactiveFormsModule,
     CommonModule,
     IonItem,
@@ -43,7 +35,11 @@ export class SelectDropdownComponent implements OnChanges {
   @Input() options: SELECT_OPTIONS[] = [];
   @Input() formControl = new UntypedFormControl();
 
-  constructor() {}
+  constructor(private cmnService: CommonService) {}
+
+  public getErrorMsg() {
+    return this.cmnService.getErrorMsg(this.formControl, this.label);
+  }
 
   ngOnChanges() {
     console.log(this.options);

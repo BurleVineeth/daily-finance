@@ -15,6 +15,12 @@
     label-placement="floating"
     [placeholder]="placeholder"
     [value]="formControl.value"
-    (ionChange)="onInputChange($event)"
+    (ionInput)="onInputChange($event)"
   ></ion-input>
 </ion-item>
+<div
+  *ngIf="formControl.value === '' && formControl.invalid"
+  class="form-control-error"
+>
+  {{ getErrorMsg() }}
+</div>

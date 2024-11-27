@@ -1,0 +1,30 @@
+<ion-header collapse="condense">
+  <ion-toolbar slot="start">
+    <ion-title>Users</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="navBack()"
+        ><ion-icon name="star"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="user-list">
+    <ion-item class="user" *ngFor="let user of usersList">
+      <ion-avatar aria-hidden="true" slot="start">
+        <img
+          alt=""
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+        />
+      </ion-avatar>
+      <ion-label class="ion-text-capitalize">
+        <div>{{user.name}}</div>
+        <p class="color-light-white">{{user.date | date}}</p>
+      </ion-label>
+      <ion-note color="light" slot="end"
+        >{{user.amount | currency :'INR' : 'symbol' : '1.0-0'}}</ion-note
+      >
+    </ion-item>
+  </ion-list>
+</ion-content>

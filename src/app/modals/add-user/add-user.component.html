@@ -20,6 +20,7 @@
     label="Phone Number"
     placeholder="Enter the phone number"
     [formControl]="getFormControl('phoneNumber')"
+    [(isNumberValid)]="isPhoneNumberValid"
   ></app-phone-number>
 
   <app-number-input

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SELECT_OPTIONS } from '../interfaces';
+import { SELECT_OPTIONS, STAT_OPTIONS } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -11,5 +11,13 @@ export class DataMappingService {
     { name: 'Daily', value: 'daily' },
     { name: 'Weekly', value: 'weekly' },
     { name: 'No Interest', value: 'noInterest' },
+  ];
+
+  statsOptions: STAT_OPTIONS[] = [
+    {
+      name: 'Users',
+      url: 'users',
+      color: 'border-sky-blue',
+    },
   ];
 }

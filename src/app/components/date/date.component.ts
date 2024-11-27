@@ -12,6 +12,7 @@ import {
   IonLabel,
   IonIcon,
 } from '@ionic/angular/standalone';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-date',
@@ -32,11 +33,13 @@ export class DateComponent {
   @Input() placeholder = '';
   @Input() formControl = new UntypedFormControl();
 
-  constructor() {}
+  constructor(private cmnService: CommonService) {}
 
-  writeValue(value: string): void {
-    // this.value = value ? value : '';
+  public getErrorMsg() {
+    return this.cmnService.getErrorMsg(this.formControl, this.label);
   }
+
+  writeValue(value: string): void {}
   registerOnChange(fn: any): void {}
   registerOnTouched(fn: any): void {}
   setDisabledState?(isDisabled: boolean): void {}
