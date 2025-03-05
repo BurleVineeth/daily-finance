@@ -1,5 +1,7 @@
 {
   "name": "Daily Finance",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular-standalone"
 }

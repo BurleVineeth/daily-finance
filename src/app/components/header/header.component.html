@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>{{ title }}</ion-title>
+    <ion-title slot="start">{{ title }}</ion-title>
     <ion-buttons slot="start">
-      <ion-button>king</ion-button>
+      <ion-button *ngIf="hasNav" (click)="navBack()">
+        <ion-icon name="caret-back"></ion-icon>
+      </ion-button>
     </ion-buttons>
+    <ion-title *ngIf="showDate" slot="end">{{ today | date }}</ion-title>
   </ion-toolbar>
 </ion-header>

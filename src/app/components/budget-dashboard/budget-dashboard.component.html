@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="space">
+    <div class="space-title">You Will Get</div>
+    <div class="space-content danger">
+      {{ amountToGet | currency: "INR" : "symbol" : "1.0-0" }}
+    </div>
+  </div>
+  <div class="space">
+    <div class="space-title">You Have</div>
+    <div class="space-content success">
+      {{ amountHave | currency: "INR" : "symbol" : "1.0-0" }}
+    </div>
+  </div>
+</div>

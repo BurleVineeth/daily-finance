@@ -1,22 +1,13 @@
-<ion-header collapse="condense">
-  <ion-toolbar slot="start">
-    <ion-title>Users</ion-title>
-    <ion-buttons slot="start">
-      <ion-button (click)="navBack()"
-        ><ion-icon name="star"></ion-icon
-      ></ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
+<app-header title="Users"></app-header>
 <ion-content>
   <ion-list class="user-list">
     <ion-item class="user" *ngFor="let user of usersList">
-      <ion-avatar aria-hidden="true" slot="start">
+      <ion-avatar aria-hidden="true" slot="start" (click)="viewProfile(user)">
         <img
           alt=""
-          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          src="https://firebasestorage.googleapis.com/v0/b/onthespotapptestau.appspot.com/o/comp%2FX0U9p3lbsEnyQ4kqeJJ2%2FfloorPlans%2Fimages%2F1732696404618_iJ3JKWyqa6LX?alt=media&token=3f56d001-a6f5-424e-8bd6-5060c9ff84ad"
         />
+        <!-- src="https://ionicframework.com/docs/img/demos/avatar.svg" -->
       </ion-avatar>
       <ion-label class="ion-text-capitalize">
         <div>{{user.name}}</div>

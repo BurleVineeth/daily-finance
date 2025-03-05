@@ -1,0 +1,48 @@
+.image-content {
+  .image-container {
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: fixed;
+    }
+  }
+}
+
+.image-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.title {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+}
+
+.profile-info {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+}
+
+.profile-info .profile-btn {
+  flex: 50%;
+  margin: 0;
+  --border-radius: none;
+  border: none;
+  height: 50px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

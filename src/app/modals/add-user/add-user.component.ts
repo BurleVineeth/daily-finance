@@ -93,10 +93,10 @@ export class AddUserComponent {
     try {
       console.log(this.userForm.value);
       if (this.userForm.valid && this.isPhoneNumberValid) {
-        debugger;
         const userPayload = {
           ...this.userForm.value,
           created: new Date().getTime(),
+          balance: this.userForm.value.amount,
         };
 
         await this.firebaseSvc.createSingleDocument(

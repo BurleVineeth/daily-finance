@@ -35,6 +35,7 @@ export class IntlTelInputDirective implements AfterViewInit {
       separateDialCode: true,
       utilsScript: this.INTL_TEL_INPUT_SCRIPT,
     });
+
     if (this.countryCode) {
       this.ionIntelInputRef.setCountry(this.countryCode);
     }

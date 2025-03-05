@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  text-align: center;
+  .space {
+    flex: 50%;
+
+    .space-title,
+    .space-content {
+      height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+.success {
+  color: green;
+}
+
+.danger {
+  color: red;
+}

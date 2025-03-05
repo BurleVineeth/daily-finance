@@ -12,7 +12,7 @@ import {
   IonFabButton,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { time, statsChart, home, add, caretBack } from 'ionicons/icons';
+import { time, statsChart, home, personAddOutline } from 'ionicons/icons';
 import { ModalService } from '../core/services/modal.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor(private modalSvc: ModalService) {
-    addIcons({ home, time, statsChart, caretBack });
+    addIcons({ home, time, statsChart, personAddOutline });
   }
 
   async addNewUser() {

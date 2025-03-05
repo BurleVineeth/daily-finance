@@ -47,6 +47,10 @@
   bottom: 150px !important;
 }
 
+.iti--fullscreen-popup.iti--container {
+  background-color: rgba(0, 0, 0, 0.813) !important;
+}
+
 .iti__flag-container {
   color: #fff;
   display: flex;
@@ -93,4 +97,19 @@
 
 .color-light-white {
   color: #cecece !important;
+}
+
+.show-image-modal {
+  z-index: 20001;
+  --width: 85%;
+  --max-width: 400px;
+  --max-height: 300px;
+  display: flex;
+  align-items: start;
+  padding-top: 80px;
+  --border-radius: 16px;
+}
+
+img {
+  object-fit: cover;
 }

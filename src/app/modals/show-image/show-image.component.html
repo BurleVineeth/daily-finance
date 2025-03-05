@@ -1,0 +1,16 @@
+<ion-content class="image-content">
+  <div class="image-container">
+    <img [src]="imageUrl" alt="Profile Image" />
+    <div class="title">
+      {{ title }}
+    </div>
+    <div class="profile-info">
+      <ion-button class="profile-btn" (click)="checkWalletInfo()">
+        <ion-icon name="wallet-outline"></ion-icon
+      ></ion-button>
+      <ion-button class="profile-btn" (click)="checkUserInfo()">
+        <ion-icon name="information-circle-outline"></ion-icon
+      ></ion-button>
+    </div>
+  </div>
+</ion-content>
